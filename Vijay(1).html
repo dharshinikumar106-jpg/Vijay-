@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vijay 💎</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,#0f172a,#020617);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* Floating lite blue hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  color:#7dd3fc;
+  animation:floatUp linear infinite;
+  opacity:0.7;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);opacity:0.8;}
+  100%{transform:translateY(-120vh) scale(1.5);opacity:0;}
+}
+
+/* Hero Section */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:25px;
+}
+
+.hero h1{
+  font-size:3.2rem;
+  color:#7dd3fc;
+  text-shadow:0 0 15px rgba(125,211,252,0.6);
+}
+
+.hero p{
+  max-width:720px;
+  margin:25px 0;
+  line-height:1.9;
+  font-size:1.1rem;
+  color:#e5e7eb;
+}
+
+/* Play Button */
+#playBtn{
+  margin-top:20px;
+  padding:14px 28px;
+  font-size:1rem;
+  background:linear-gradient(135deg,#7dd3fc,#38bdf8);
+  color:#020617;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow:0 0 25px rgba(125,211,252,0.5);
+  transition:0.3s ease;
+}
+
+#playBtn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 35px rgba(125,211,252,0.8);
+}
+
+/* Horizontal Gallery */
+.gallery{
+  padding:40px 20px 70px;
+  display:flex;
+  gap:30px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+
+.gallery::-webkit-scrollbar{
+  height:7px;
+}
+.gallery::-webkit-scrollbar-thumb{
+  background:#7dd3fc;
+  border-radius:10px;
+}
+
+.card{
+  min-width:300px;
+  max-width:300px;
+  flex-shrink:0;
+  scroll-snap-align:center;
+
+  background:#020617;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,0.7);
+  transform:translateY(40px);
+  opacity:0;
+  transition:0.7s ease;
+}
+
+.card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.card img{
+  width:100%;
+  display:block;
+}
+
+.card p{
+  padding:20px;
+  text-align:center;
+  line-height:1.7;
+  color:#e5e7eb;
+}
+
+/* Spotify embed */
+.spotify-container{
+  margin-top:30px;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(125,211,252,0.5);
+}
+.spotify-container iframe{
+  width:100%;
+  max-width:400px;
+  height:80px;
+  border:none;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Vijay 💎</h1>
+
+  <p>
+    Enna da en mela kovam ma 😅  
+    Seri summa oru website create panney unna vachu  
+    <br><br>
+
+    <strong>Sorry-da ❤️</strong>  
+    Nee solluratha inimel naan keykuren.  
+    Un feelings dhan en first priority 🤍  
+    <br><br>
+    Idhu paathaa konjam sirippa varudha? 😄
+  </p>
+
+  <!-- Button to open Spotify -->
+  <button id="playBtn" onclick="playSong()">🎵 Play Song in Spotify</button>
+
+  <!-- Spotify embed -->
+  <div class="spotify-container">
+    <iframe src="https://open.spotify.com/embed/track/1Ol8VGogqxg13AgT4nsMuG?utm_source=generator" allow="encrypted-media" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+</section>
+
+<section class="gallery">
+
+  <div class="card">
+    <img src="vijay.jpeg">
+    <p>Epdi namma editing uh 😊</p>
+  </div>
+
+  <div class="card">
+    <img src="vijay1.jpeg">
+    <p>
+      En worst days-la kooda  
+      nee en pakkathula irundhadhu  
+      naan marakka maaten da 💫
+    </p>
+  </div>
+
+  <div class="card">
+    <img src="vijay4.jpeg">
+    <p>
+      Friendship-na enna nu theriyum ma  
+      deva na yaru nu theriyum ma  
+      nenja polanthu kaatanum ma ❤️
+    </p>
+  </div>
+
+  <div class="card">
+    <img src="vijay2.jpeg">
+    <p>
+      Promise Vijay 🤞  
+      Inime naan maaruven  
+      unna purinjukitu nadappen  
+      nee happy-aa irukka dhan en wish 💎
+    </p>
+  </div>
+
+</section>
+
+<script>
+/* Open Spotify track in new tab */
+function playSong(){
+  window.open('https://open.spotify.com/track/1Ol8VGogqxg13AgT4nsMuG?si=96cb16adca214081','_blank');
+  document.getElementById("playBtn").innerText="🎧 Playing in Spotify…";
+}
+
+/* Card scroll animation */
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+  const t=window.innerHeight*0.85;
+  cards.forEach(c=>{
+    if(c.getBoundingClientRect().top<t){
+      c.classList.add("show");
+    }
+  });
+});
+
+/* Floating hearts */
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💎";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+}
+setInterval(createHeart,600);
+</script>
+
+</body>
+</html>
